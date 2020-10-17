@@ -1,6 +1,9 @@
 package com.example.uploadingfiles.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Entity
 public class SolarData {
@@ -21,7 +24,7 @@ public class SolarData {
     private int fourthLastError;
 
     public int getDate() {
-        return date;
+         return date;
     }
 
     public void setDate(int date) {

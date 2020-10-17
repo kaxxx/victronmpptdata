@@ -36,9 +36,8 @@ public class FileUploadController {
 
 	@GetMapping("/readata")
 	public String listData(Model model){
-		model.addAttribute("files", solarDataRepository.findAll());
-		System.out.println("data:"+solarDataRepository.findAll().size());
-		return "uploadForm";
+		model.addAttribute("data", solarDataRepository.findAll());
+		return "data";
 	}
 
 	@Autowired

@@ -1,0 +1,43 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+	<link th:href="@{/style.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+	<div th:if="${message}">
+		<h2 th:text="${message}"/>
+	</div>
+
+	<div>
+		<table id="data">
+			<tr>
+				<th>Date </th>
+				<th>Yield </th>
+				<th>Consumption </th>
+				<th>maxPVpower </th>
+				<th>maxPVvoltage </th>
+				<th>minBatteryVolt </th>
+				<th>maxBatteryVolt </th>
+				<th>TimeInBulk</th>
+				<th>TimeInAbs. </th>
+				<th>TimeInFloat </th>
+
+			</tr>
+			<tr th:each="adata : ${data}">
+				<!--td><span th:text="${#dates.format(adata.date, 'yy.MM.dd')}"> Datum </span></td!-->
+				<td><span th:text="${adata.date}"> Datum </span></td>
+				<td><span th:text="${adata.yield} + ' Wh'"> Yield </span></td>
+				<td><span th:text="${adata.consumption} + ' Wh'"> Consumption </span></td>
+				<td><span th:text="${adata.maxPVpower} + ' V'"> maxPVpower </span></td>
+				<td><span th:text="${adata.maxPVvoltage} + ' V'"> maxPVvoltage </span></td>
+				<td><span th:text="${adata.minBatteryVoltage} + ' V'"> minBatteryVoltage </span></td>
+				<td><span th:text="${adata.maxBatteryVoltage} + ' V'"> maxBatteryVoltage </span></td>
+				<td><span th:text="${adata.timeInBulk} + ' Min.'"> timeInBulk </span></td>
+				<td><span th:text="${adata.timeInAbsorption} + ' Min.'"> timeInAbsorption </span></td>
+				<td><span th:text="${adata.intTimeInFloat} + ' Min.'"> intTimeInFloat </span></td>
+
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
