@@ -1,6 +1,10 @@
+body {
+
+}
 th, td {
     border: 0.5px solid black;
     min-width: 7em;
+    font-family: Arial, Helvetica, sans-serif;
 }
 th {
     position: sticky;
