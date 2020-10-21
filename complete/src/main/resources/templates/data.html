@@ -3,13 +3,16 @@
 	<link th:href="@{/style.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div><a href="/">Upload</a> </div>
+<div id="data">
+	<div id="menu">
+	<a href="/">Upload</a> </div>
+	<div>
 	<div th:if="${message}">
 		<h2 th:text="${message}"/>
 	</div>
 
-	<div>
-		<table id="data">
+
+		<table id="datatable">
 			<tr>
 				<th>Date </th>
 				<th>Yield </th>
