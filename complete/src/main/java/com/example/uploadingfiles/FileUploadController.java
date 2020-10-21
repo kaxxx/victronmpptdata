@@ -49,6 +49,18 @@ public class FileUploadController {
 		return foundDate;
 	}
 
+	@GetMapping("/rest/minbatvol")
+	@ResponseBody
+	public List<String> readVal() {
+		return solarDataRepository.getMinBatVolList();
+	}
+
+	@GetMapping("/rest/minbatvol/{from}/{to}")
+	@ResponseBody
+	public List<String> readVal(@PathVariable("from") int from, @PathVariable("to") int to) {
+		return solarDataRepository.getMinBatVolList(from, to);
+	}
+
 	@GetMapping("/")
 	public String listUploadedFiles(Model model) throws IOException {
 
