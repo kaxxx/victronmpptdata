@@ -2,7 +2,9 @@ package com.example.uploadingfiles;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -51,13 +53,16 @@ public class FileUploadController {
 
 	@GetMapping("/rest/minbatvol")
 	@ResponseBody
-	public List<String> readVal() {
+	public List<Object> readVal() {
+		//Map dataMap = new HashMap<Integer,Float>();
+		//List<Object[]> dataList = solarDataRepository.getMinBatVolList();
+		//dataList.iterator().forEachRemaining();
 		return solarDataRepository.getMinBatVolList();
 	}
 
 	@GetMapping("/rest/minbatvol/{from}/{to}")
 	@ResponseBody
-	public List<String> readVal(@PathVariable("from") int from, @PathVariable("to") int to) {
+	public List<Object> readVal(@PathVariable("from") int from, @PathVariable("to") int to) {
 		return solarDataRepository.getMinBatVolList(from, to);
 	}
 

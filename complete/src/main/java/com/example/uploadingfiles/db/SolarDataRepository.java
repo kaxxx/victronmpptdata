@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface SolarDataRepository extends JpaRepository<SolarData, Integer> {
     @Query("SELECT sd.date, sd.minBatteryVoltage  FROM SolarData sd")
-    public List<String> getMinBatVolList();
+    public List<Object> getMinBatVolList();
 
     @Query("SELECT sd.date, sd.minBatteryVoltage FROM SolarData sd WHERE sd.date between ?1 AND ?2")
-    public List<String> getMinBatVolList(int from, int to);
+    public List<Object> getMinBatVolList(int from, int to);
 
 }
