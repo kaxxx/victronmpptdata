@@ -2,13 +2,11 @@ package com.example.uploadingfiles;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import com.example.uploadingfiles.db.SolarDataRepository;
+import com.example.uploadingfiles.model.BatVoltData;
 import com.example.uploadingfiles.model.SolarData;
 import com.example.uploadingfiles.parse.CsvFileParser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,15 +49,23 @@ public class FileUploadController {
 		return foundDate;
 	}
 
-	@GetMapping("/rest/minbatvol")
+	@GetMapping("/rest/all")
 	@ResponseBody
-	public List<Object> readVal() {
-		//Map dataMap = new HashMap<Integer,Float>();
-		//List<Object[]> dataList = solarDataRepository.getMinBatVolList();
-		//dataList.iterator().forEachRemaining();
-		return solarDataRepository.getMinBatVolList();
+	public List<SolarData> readAll() {
+		List<SolarData> foundDate = solarDataRepository.findAll();
+		return foundDate;
 	}
 
+	//TODO: Make this return json objects, not ArayList!
+	@GetMapping("/rest/minbatvol")
+	@ResponseBody
+	public Iterable<Object> readVal() {
+		List<Object> minBatVolList = solarDataRepository.getMinBatVolList();
+		return minBatVolList;
+
+	}
+
+	//TODO: Make this return json objects, not ArayList!
 	@GetMapping("/rest/minbatvol/{from}/{to}")
 	@ResponseBody
 	public List<Object> readVal(@PathVariable("from") int from, @PathVariable("to") int to) {
