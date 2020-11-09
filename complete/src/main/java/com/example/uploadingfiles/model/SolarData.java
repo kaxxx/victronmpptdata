@@ -35,7 +35,7 @@ public class SolarData {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        simpleDateFormat = new SimpleDateFormat("E dd.mm.yyyy");
+        simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
         return simpleDateFormat.format(d);
     }
 

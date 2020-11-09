@@ -1,0 +1,175 @@
+<html>
+<head>
+        <!-- Load c3.css -->
+        <link href="c3/c3.min.css" rel="stylesheet">
+        <link href="css/css.css" rel="stylesheet">
+        <!-- Load d3.js and c3.js -->
+        <script src="https://d3js.org/d3.v5.js"></script>
+        <script src="c3/c3.min.js"></script>
+        <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+</head>
+<body>
+<script>
+
+function load(){
+        var d = d3.json("http://localhost:8080/rest/all").then(drawBatVolt); //./all.json
+}
+
+function handleError(error){
+        console.log(error);
+}
+
+function drawBatVolt(data){
+        scala = []; //d3.keys(data);
+        scala.push('ddate');
+
+        pall = d3.entries(data);
+
+        minBatteryVoltage = [];
+        minBatteryVoltage.push('min. Battery Volt');
+
+        maxBatteryVoltage = [];
+        maxBatteryVoltage.push('max. Battery Volt');
+
+        d3.values(data);
+        pall.forEach(function (p){
+            scala.push(p.value.ddate);// todo: int to string!
+            minBatteryVoltage.push(p.value.minBatteryVoltage);
+            maxBatteryVoltage.push(p.value.maxBatteryVoltage);            
+        });
+
+        var chart = c3.generate({
+            data: {
+                x: 'ddate',
+                xFormat: '%Y-%m-%d', // 'xFormat' can be used as custom format of 'x'
+                columns: [
+                    scala,
+                    minBatteryVoltage,
+                    maxBatteryVoltage
+                ]
+            },
+            axis: {
+                x: {
+                    type: 'timeseries',
+                    tick: {
+                        format: '%a, %d.%m.%Y'
+                    }
+                },
+                y: {
+                    label: {
+                      text: 'Volt',
+                      position: 'outer-middle'
+                    }
+                }
+            },
+            bindto: '#chart'
+        });
+        drawYield(data);
+}
+
+function drawYield(data){
+        scala = []; //d3.keys(data);
+        scala.push('ddate');
+
+        pall = d3.entries(data);
+
+        yield = [];
+        yield.push('Ertrag Wh');
+
+
+        d3.values(data);
+        pall.forEach(function (p){
+            scala.push(p.value.ddate);// todo: int to string!
+            yield.push(p.value.yield);        
+        });
+
+        var chart = c3.generate({
+            data: {
+                x: 'ddate',
+                xFormat: '%Y-%m-%d', // 'xFormat' can be used as custom format of 'x'
+                columns: [
+                    scala,
+                    yield
+                ]
+            },
+            axis: {
+                x: {
+                    type: 'timeseries',
+                    tick: {
+                        format: '%a, %d.%m.%Y'
+                    }
+                },
+                y: {
+                    label: {
+                      text: 'Wh',
+                      position: 'outer-middle'
+                    }
+                }
+            },
+            bindto: '#chart2'
+        });
+        drawTime(data);
+}
+
+function drawTime(data){
+        scala = []; //d3.keys(data);
+        scala.push('ddate');
+
+        pall = d3.entries(data);
+
+        timeInBulk = [];
+        timeInBulk.push('Zeit in Bulk');
+
+        timeInAbsorption = [];
+        timeInAbsorption.push('Zeit in Absorbtion');
+
+        intTimeInFloat = [];
+        intTimeInFloat.push('Zeit in Float');
+
+        d3.values(data);
+        pall.forEach(function (p){
+            scala.push(p.value.ddate);// todo: int to string!
+            timeInBulk.push(p.value.timeInBulk);
+            timeInAbsorption.push(p.value.timeInAbsorption);
+            intTimeInFloat.push(p.value.intTimeInFloat);         
+        });
+
+        var chart = c3.generate({
+            data: {
+                x: 'ddate',
+                xFormat: '%Y-%m-%d', // 'xFormat' can be used as custom format of 'x'
+                columns: [
+                    scala,
+                    timeInBulk,
+                    timeInAbsorption,
+                    intTimeInFloat
+                ]
+            },
+            axis: {
+                x: {
+                    type: 'timeseries',
+                    tick: {
+                        format: '%a, %d.%m.%Y'
+                    }
+                },
+                y: {
+                    label: {
+                      text: 'Min.',
+                      position: 'outer-middle'
+                    }
+                }
+            },
+            bindto: '#chart3'
+        });
+}
+
+
+$( document ).ready(function() {
+        load();
+});
+</script>
+<div id="chart"></div>
+<div id="chart2"></div>
+<div id="chart3"></div>
+</body>
+</html>
