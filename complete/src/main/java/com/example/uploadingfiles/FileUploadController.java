@@ -50,6 +50,7 @@ public class FileUploadController {
 	}
 
 	@GetMapping("/rest/all")
+	@CrossOrigin()
 	@ResponseBody
 	public List<SolarData> readAll() {
 		List<SolarData> foundDate = solarDataRepository.findAll();
