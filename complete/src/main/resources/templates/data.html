@@ -9,8 +9,6 @@
 	<div th:if="${message}">
 		<h2 th:text="${message}"/>
 	</div>
-
-
 		<table id="datatable">
 			<tr>
 				<th>Date </th>
@@ -23,7 +21,6 @@
 				<th>TimeInBulk</th>
 				<th>TimeInAbs. </th>
 				<th>TimeInFloat </th>
-
 			</tr>
 			<tr th:each="adata : ${data}">
 				<!--td><span th:text="${#dates.format(adata.date, 'yy.MM.dd')}"> Datum </span></td!-->
@@ -37,7 +34,6 @@
 				<td><span th:text="${adata.timeInBulk} + ' Min.'"> timeInBulk </span></td>
 				<td><span th:text="${adata.timeInAbsorption} + ' Min.'"> timeInAbsorption </span></td>
 				<td><span th:text="${adata.intTimeInFloat} + ' Min.'"> intTimeInFloat </span></td>
-
 			</tr>
 		</table>
 	</div>

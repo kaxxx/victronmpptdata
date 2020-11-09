@@ -40,9 +40,6 @@ public class CsvFileParser {
                     }
                     Date dbdate = parseDate(dataLine[1]);
                     dataLine[1] = mkDbDate(dbdate);
-                    //System.out.println("Data [date= " + mkDbDate(dbdate) + " , Yield(Wh)=" + dataLine[5] + "]");
-                    //insertDB(dataLine);
-                    printData(dataLine);
                     addSolarDataObject(dataLine);
                 }
 
@@ -52,24 +49,6 @@ public class CsvFileParser {
 
         }
 
-    }
-
-    public void printData(String[] dataLine){
-        System.out.println("\n");
-        System.out.println("Date:"+dataLine[1]); //int
-        System.out.println("Yield(Wh):"+dataLine[2]); //int
-        System.out.println("Consumption(Wh):"+dataLine[3]); //int
-        System.out.println("Max. PV power(W):"+dataLine[4]); //float
-        System.out.println("Max. PV voltage(V):"+dataLine[5]); //float
-        System.out.println("Min. battery voltage(V):"+dataLine[6]); //float
-        System.out.println("Max. battery voltage(V):"+dataLine[7]); //float
-        System.out.println("Time in bulk(m):"+dataLine[8]); //int
-        System.out.println("Time in absorption(m):"+dataLine[9]); //int
-        System.out.println("Time in float(m):"+dataLine[10]); //int
-        System.out.println("Last error:"+dataLine[11]); //int
-        System.out.println("2nd last error:"+dataLine[12]); //int
-        System.out.println("3rd last error:"+dataLine[13]); //int
-        System.out.println("4th last error:"+dataLine[14]); //int
     }
 
     public void addSolarDataObject(String[] dataLine){
@@ -91,8 +70,6 @@ public class CsvFileParser {
         sData.setThirdLastError(Integer.valueOf(dataLine[13]));
         sData.setFourthLastError(Integer.valueOf(dataLine[14]));
 
-        //SolarDataInsertRepository insertRepo = new SolarDataInsertRepository();
-        //insertRepo.insertWithQuery(sData);
         solarDataList.add(sData);
 
     }
