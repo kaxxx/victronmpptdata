@@ -9,10 +9,11 @@
         <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
 </head>
 <body>
+<div><a href="/readata">Show data</a> | <a href="/">Upload</a></div>
 <script>
 
 function load(){
-        var d = d3.json("http://localhost:8080/rest/all").then(drawBatVolt); //./all.json
+        var d = d3.json("/rest/all").then(drawBatVolt); //./all.json
 }
 
 function handleError(error){

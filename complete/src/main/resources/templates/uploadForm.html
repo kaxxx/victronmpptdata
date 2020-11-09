@@ -1,6 +1,9 @@
 <html xmlns:th="https://www.thymeleaf.org">
+<head>
+	<link href="/view/css/css.css" rel="stylesheet">
+</head>
 <body>
-	<div><a href="/readata">Show data</a> </div>
+	<div><a href="/readata">Show data</a> | <a href="/view/charts.html">Charts</a></div>
 	<div th:if="${message}">
 		<h2 th:text="${message}"/>
 	</div>
