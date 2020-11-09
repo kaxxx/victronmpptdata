@@ -9,10 +9,11 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface SolarDataRepository extends JpaRepository<SolarData, Integer> {
-    @Query("SELECT sd.date, sd.minBatteryVoltage  FROM SolarData sd")
-    public List<Object> getMinBatVolList();
+
+    @Query("SELECT sd.date, sd.minBatteryVoltage FROM SolarData sd")
+    public List<SolarData> getMinBatVolList();
 
     @Query("SELECT sd.date, sd.minBatteryVoltage FROM SolarData sd WHERE sd.date between ?1 AND ?2")
-    public List<Object> getMinBatVolList(int from, int to);
+    public List<SolarData> getMinBatVolList(int from, int to);
 
 }

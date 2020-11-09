@@ -59,8 +59,8 @@ public class FileUploadController {
 	//TODO: Make this return json objects, not ArayList!
 	@GetMapping("/rest/minbatvol")
 	@ResponseBody
-	public Iterable<Object> readVal() {
-		List<Object> minBatVolList = solarDataRepository.getMinBatVolList();
+	public List<SolarData> readVal() {
+		List<SolarData> minBatVolList = solarDataRepository.getMinBatVolList();
 		return minBatVolList;
 
 	}
@@ -68,7 +68,7 @@ public class FileUploadController {
 	//TODO: Make this return json objects, not ArayList!
 	@GetMapping("/rest/minbatvol/{from}/{to}")
 	@ResponseBody
-	public List<Object> readVal(@PathVariable("from") int from, @PathVariable("to") int to) {
+	public List<SolarData> readVal(@PathVariable("from") int from, @PathVariable("to") int to) {
 		return solarDataRepository.getMinBatVolList(from, to);
 	}
 
