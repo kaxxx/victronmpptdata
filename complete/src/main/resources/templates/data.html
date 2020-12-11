@@ -24,7 +24,8 @@
 			</tr>
 			<tr th:each="adata : ${data}">
 				<!--td><span th:text="${#dates.format(adata.date, 'yy.MM.dd')}"> Datum </span></td!-->
-				<td><span th:text="${adata.ddate}"> Datum </span></td>
+
+				<td><span th:text="${#dates.format(adata.ddate, 'EEE dd.MM.yyyy')}"> Datum </span></td>
 				<td><span th:text="${adata.yield} + ' Wh'"> Yield </span></td>
 				<td><span th:text="${adata.consumption} + ' Wh'"> Consumption </span></td>
 				<td><span th:text="${adata.maxPVpower} + ' W'"> maxPVpower </span></td>
