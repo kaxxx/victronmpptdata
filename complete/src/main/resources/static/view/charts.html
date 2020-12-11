@@ -22,7 +22,7 @@ function handleError(error){
 
 function drawBatVolt(data){
         scala = []; //d3.keys(data);
-        scala.push('ddate');
+        scala.push('gdate');
 
         pall = d3.entries(data);
 
@@ -34,14 +34,14 @@ function drawBatVolt(data){
 
         d3.values(data);
         pall.forEach(function (p){
-            scala.push(p.value.ddate);// todo: int to string!
+            scala.push(p.value.gdate);// todo: int to string!
             minBatteryVoltage.push(p.value.minBatteryVoltage);
             maxBatteryVoltage.push(p.value.maxBatteryVoltage);            
         });
 
         var chart = c3.generate({
             data: {
-                x: 'ddate',
+                x: 'gdate',
                 xFormat: '%Y-%m-%d', // 'xFormat' can be used as custom format of 'x'
                 columns: [
                     scala,
@@ -70,7 +70,7 @@ function drawBatVolt(data){
 
 function drawYield(data){
         scala = []; //d3.keys(data);
-        scala.push('ddate');
+        scala.push('gdate');
 
         pall = d3.entries(data);
 
@@ -80,13 +80,13 @@ function drawYield(data){
 
         d3.values(data);
         pall.forEach(function (p){
-            scala.push(p.value.ddate);// todo: int to string!
+            scala.push(p.value.gdate);// todo: int to string!
             yield.push(p.value.yield);        
         });
 
         var chart = c3.generate({
             data: {
-                x: 'ddate',
+                x: 'gdate',
                 xFormat: '%Y-%m-%d', // 'xFormat' can be used as custom format of 'x'
                 columns: [
                     scala,
@@ -114,7 +114,7 @@ function drawYield(data){
 
 function drawTime(data){
         scala = []; //d3.keys(data);
-        scala.push('ddate');
+        scala.push('gdate');
 
         pall = d3.entries(data);
 
@@ -129,7 +129,7 @@ function drawTime(data){
 
         d3.values(data);
         pall.forEach(function (p){
-            scala.push(p.value.ddate);// todo: int to string!
+            scala.push(p.value.gdate);// todo: int to string!
             timeInBulk.push(p.value.timeInBulk);
             timeInAbsorption.push(p.value.timeInAbsorption);
             intTimeInFloat.push(p.value.intTimeInFloat);         
@@ -137,7 +137,7 @@ function drawTime(data){
 
         var chart = c3.generate({
             data: {
-                x: 'ddate',
+                x: 'gdate',
                 xFormat: '%Y-%m-%d', // 'xFormat' can be used as custom format of 'x'
                 columns: [
                     scala,

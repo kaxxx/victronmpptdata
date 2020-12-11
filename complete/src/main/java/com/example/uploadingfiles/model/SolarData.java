@@ -27,7 +27,7 @@ public class SolarData {
          return date;
     }
 
-    public String getDdate(){
+    public String getGdate(){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyymmdd");
         Date d = new Date();
         try {
@@ -39,6 +39,17 @@ public class SolarData {
         return simpleDateFormat.format(d);
     }
 
+    public Date getDdate(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyymmdd");
+        Date d = new Date();
+        try {
+            d = simpleDateFormat.parse(""+date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        return d;
+    }
     public void setDate(int date) {
         this.date = date;
     }

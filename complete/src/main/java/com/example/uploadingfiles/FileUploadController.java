@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import com.example.uploadingfiles.db.SolarDataRepository;
-import com.example.uploadingfiles.model.BatVoltData;
+//import com.example.uploadingfiles.model.BatVoltData;
 import com.example.uploadingfiles.model.SolarData;
 import com.example.uploadingfiles.parse.CsvFileParser;
 import org.springframework.beans.factory.annotation.Autowired;

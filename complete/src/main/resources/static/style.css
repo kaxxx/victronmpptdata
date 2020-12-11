@@ -22,3 +22,15 @@ th {
 td {
     text-align: right;
 }
+
+.red_text {
+    color: red;
+}
+
+.green_text {
+    color: green;
+}
+
+.bold_text {
+    font-weight: bold;
+}
