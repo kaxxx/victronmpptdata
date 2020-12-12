@@ -28,17 +28,19 @@
 				<td><span th:text="${#dates.format(adata.ddate, 'EEE dd.MM.yyyy')}"> Datum </span></td>
 				<td><span th:text="${adata.yield} + ' Wh'"> Yield </span></td>
 				<td><span th:text="${adata.consumption} + ' Wh'"> Consumption </span></td>
-				<td><span th:text="${adata.maxPVpower} + ' W'"> maxPVpower </span></td>
-				<td><span th:text="${adata.maxPVvoltage} + ' V'"> maxPVvoltage </span></td>
+
+				<td><span th:text="${#numbers.formatDecimal(adata.maxPVpower, 1, 'DEFAULT', 2, 'DEFAULT')} + ' W'"> maxPVpower </span></td>
+				<td><span th:text="${#numbers.formatDecimal(adata.maxPVvoltage, 1, 'DEFAULT', 2, 'DEFAULT')} + ' V'"> maxPVvoltage </span></td>
 
 				<td th:switch="${adata.minBatteryVoltage > 11.8}">
-					<span th:case="TRUE" class="" th:text="${adata.minBatteryVoltage} + ' V'"> minBatteryVoltage </span>
-					<span th:case="FALSE" class="red_text bold_text" th:text="${adata.minBatteryVoltage} + ' V'"> minBatteryVoltage </span>
-					<span th:case="*" th:text="${adata.minBatteryVoltage} + ' V'"> minBatteryVoltage </span>
+					<span th:case="TRUE" class="" th:text="${#numbers.formatDecimal(adata.minBatteryVoltage, 1, 'DEFAULT', 2, 'DEFAULT')} + ' V'"> minBatteryVoltage </span>
+					<span th:case="FALSE" class="red_text bold_text" th:text="${#numbers.formatDecimal(adata.minBatteryVoltage, 1, 'DEFAULT', 2, 'DEFAULT')} + ' V'"> minBatteryVoltage </span>
+					<span th:case="*" th:text="${#numbers.formatDecimal(adata.minBatteryVoltage, 1, 'DEFAULT', 2, 'DEFAULT')} + ' V'"> minBatteryVoltage </span>
 				</td>
 				<td th:switch="${adata.maxBatteryVoltage >= 14.4}">
-					<span th:case="TRUE" class="green_text bold_text" th:text="${adata.maxBatteryVoltage} + ' V'"> maxBatteryVoltage </span>
-					<span th:case="FALSE" class="" th:text="${adata.maxBatteryVoltage} + ' V'"> maxBatteryVoltage </span>
+
+					<span th:case="TRUE" class="green_text bold_text" th:text="${#numbers.formatDecimal(adata.maxBatteryVoltage, 1, 'DEFAULT', 2, 'DEFAULT')} + ' V'"> maxBatteryVoltage </span>
+					<span th:case="FALSE" class="" th:text="${#numbers.formatDecimal(adata.maxBatteryVoltage, 1, 'DEFAULT', 2, 'DEFAULT')} + ' V'"> maxBatteryVoltage </span>
 				</td>
 				<td><span th:text="${adata.timeInBulk} + ' Min.'"> timeInBulk </span></td>
 				<td><span th:text="${adata.timeInAbsorption} + ' Min.'"> timeInAbsorption </span></td>
