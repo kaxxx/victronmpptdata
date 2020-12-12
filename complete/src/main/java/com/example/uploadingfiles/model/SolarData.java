@@ -28,26 +28,27 @@ public class SolarData {
     }
 
     public String getGdate(){
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyymmdd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         Date d = new Date();
+
         try {
             d = simpleDateFormat.parse(""+date);
         } catch (ParseException e) {
             e.printStackTrace();
         }
         simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
+
         return simpleDateFormat.format(d);
     }
 
     public Date getDdate(){
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyymmdd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         Date d = new Date();
         try {
             d = simpleDateFormat.parse(""+date);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
         return d;
     }
     public void setDate(int date) {

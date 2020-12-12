@@ -36,7 +36,10 @@
 					<span th:case="FALSE" class="red_text bold_text" th:text="${adata.minBatteryVoltage} + ' V'"> minBatteryVoltage </span>
 					<span th:case="*" th:text="${adata.minBatteryVoltage} + ' V'"> minBatteryVoltage </span>
 				</td>
-				<td><span th:text="${adata.maxBatteryVoltage} + ' V'"> maxBatteryVoltage </span></td>
+				<td th:switch="${adata.maxBatteryVoltage >= 14.4}">
+					<span th:case="TRUE" class="green_text bold_text" th:text="${adata.maxBatteryVoltage} + ' V'"> maxBatteryVoltage </span>
+					<span th:case="FALSE" class="" th:text="${adata.maxBatteryVoltage} + ' V'"> maxBatteryVoltage </span>
+				</td>
 				<td><span th:text="${adata.timeInBulk} + ' Min.'"> timeInBulk </span></td>
 				<td><span th:text="${adata.timeInAbsorption} + ' Min.'"> timeInAbsorption </span></td>
 				<td><span th:text="${adata.intTimeInFloat} + ' Min.'"> intTimeInFloat </span></td>
