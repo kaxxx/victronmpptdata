@@ -30,7 +30,7 @@ public class SolarData {
     }
 
     public String getGdate(){
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyymmdd");
         Date d = new Date();
 
         try {
