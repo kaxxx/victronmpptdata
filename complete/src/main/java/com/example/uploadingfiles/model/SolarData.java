@@ -29,6 +29,10 @@ public class SolarData {
          return date;
     }
 
+    /**
+     * Used by charts.html
+     * @return
+     */
     public String getGdate(){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyymmdd");
         Date d = new Date();
@@ -43,6 +47,10 @@ public class SolarData {
         return simpleDateFormat.format(d);
     }
 
+    /**
+     * Used by table view on data.html
+     * @return
+     */
     public Date getDdate(){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         Date d = new Date();
