@@ -49,6 +49,9 @@ function drawBatVolt(data){
                     maxBatteryVoltage
                 ]
             },
+            zoom: {
+                enabled: true
+            },
             axis: {
                 x: {
                     type: 'timeseries',
@@ -93,6 +96,9 @@ function drawYield(data){
                     yield
                 ]
             },
+            zoom: {
+                 enabled: true
+            },
             axis: {
                 x: {
                     type: 'timeseries',
@@ -106,6 +112,9 @@ function drawYield(data){
                       position: 'outer-middle'
                     }
                 }
+            },
+            zoom: {
+                    enabled: true
             },
             bindto: '#chart2'
         });
@@ -159,6 +168,9 @@ function drawTime(data){
                       position: 'outer-middle'
                     }
                 }
+            },
+            zoom: {
+                    enabled: true
             },
             bindto: '#chart3'
         });
