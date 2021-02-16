@@ -57,6 +57,23 @@ public class FileUploadController {
 		return foundDate;
 	}
 
+	@GetMapping("/rest/{from}/{to}")
+	@CrossOrigin()
+	@ResponseBody
+	public List<SolarData> readFromTo(@PathVariable("from") int from, @PathVariable("to") int to) {
+		//List<SolarData> foundDate = solarDataRepository.findAll();
+		List<SolarData> relevantDates = new ArrayList<SolarData>();
+		List<SolarData> allDate = solarDataRepository.findAll();
+		for (SolarData line:allDate) {
+			System.out.println(line.getDate());
+			if (line.getDate()>=from && line.getDate()<=to){
+				relevantDates.add(line);
+			}
+		}
+		return relevantDates;
+	}
+
+
 	//TODO: Make this return json objects, not ArayList!
 	@GetMapping("/rest/minbatvol")
 	@ResponseBody
