@@ -16,4 +16,7 @@ public interface SolarDataRepository extends JpaRepository<SolarData, Integer> {
     @Query("SELECT sd.date, sd.minBatteryVoltage FROM SolarData sd WHERE sd.date between ?1 AND ?2")
     public List<SolarData> getMinBatVolList(int from, int to);
 
+    @Query("SELECT '*' FROM SolarData sd WHERE sd.date between ?1 AND ?2")
+    public List<SolarData> getFromTo(int from, int to);
+
 }

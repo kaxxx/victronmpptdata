@@ -81,12 +81,17 @@ public class CsvFileParser {
 
     public Date parseDate(String csvDate){
         DateFormat df = new SimpleDateFormat("MM/dd/yy", Locale.ENGLISH);
-
+        DateFormat df_apple = new SimpleDateFormat("dd.MM.yy", Locale.ENGLISH);
         Date result = null;
         try {
             result = df.parse(csvDate);
         } catch (ParseException e) {
-            e.printStackTrace();
+            try {
+                result = df_apple.parse(csvDate);
+            } catch (ParseException e2){
+
+                e2.printStackTrace();
+            }
         }
 
         return result;
