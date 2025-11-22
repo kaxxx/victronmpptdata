@@ -1,8 +1,7 @@
 package com.example.uploadingfiles.model;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import org.springframework.format.annotation.NumberFormat;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
